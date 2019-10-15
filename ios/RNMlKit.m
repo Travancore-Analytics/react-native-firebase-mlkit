@@ -149,11 +149,11 @@ RCT_REMAP_METHOD(deviceTextRecognition, deviceTextRecognition:(NSString *)imageP
                 NSMutableDictionary *bounding = [NSMutableDictionary dictionary];
                 NSString *blockText = block.text;
 
-                bounding[@"left"]=[NSString stringWithFormat: @"%f", block.cornerPoints[0].CGVectorValue.dx];
-                bounding[@"top"]=[NSString stringWithFormat: @"%f", block.cornerPoints[0].CGVectorValue.dy];
+                bounding[@"left"]=[NSNumber numberWithFloat: block.cornerPoints[0].CGVectorValue.dx];
+                bounding[@"top"]=[NSNumber numberWithFloat: block.cornerPoints[0].CGVectorValue.dy];
 
-                bounding[@"width"]=[NSString stringWithFormat: @"%f", block.cornerPoints[2].CGVectorValue.dx-block.cornerPoints[0].CGVectorValue.dx];
-                bounding[@"height"]=[NSString stringWithFormat: @"%f", block.cornerPoints[2].CGVectorValue.dy - block.cornerPoints[0].CGVectorValue.dy];
+                bounding[@"width"]=[NSNumber numberWithFloat: block.cornerPoints[2].CGVectorValue.dx-block.cornerPoints[0].CGVectorValue.dx];
+                bounding[@"height"]=[NSNumber numberWithFloat: block.cornerPoints[2].CGVectorValue.dy - block.cornerPoints[0].CGVectorValue.dy];
 
                 blocks[@"resultText"] = result.text;
                 blocks[@"blockText"] = block.text;
